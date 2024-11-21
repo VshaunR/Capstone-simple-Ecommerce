@@ -13,18 +13,18 @@ export default function DashBoard(){
    const token = cookies.token;
     try {
       const decoded = jwtDecode(token)
-      console.log(decoded)
+      console.log(decoded.user.id)
+      const id = decoded.user.id
+      let result = await fetch(`http://localhost:3000/user/${id}`,{
 
-      // let result = await fetch('http://localhost:3000/auth',{
-
-      //   headers:{
+        headers:{
   
-      //     Authorization:`Bearer ${cookies.token}`
-      //   },
+          'x-auth-token':`${cookies.token}`
+        },
       
-      // })
-      // let data = await result.json();
-      // console.log(data)
+      })
+      let data = await result.json();
+      console.log(data)
     } catch (e) {
       console.error(e);
     }

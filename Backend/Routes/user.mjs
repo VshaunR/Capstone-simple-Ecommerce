@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import {check,validationResult} from 'express-validator';
 import User from '../models/UserSchema.mjs';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
+import authorize from '../middleware/auth.mjs';
 dotenv.config();
 const router = express.Router()
 //register user
@@ -79,7 +80,18 @@ router.post('/',[
 
 
 
+router.get('/:id',authorize,async(req,res)=>{
 
+  try {
+    let result = await User.findById(req.user.id).select('-password')
+    res.json(result)
+
+  } catch (e) {
+    console.error(e);
+      res.status(500).json({errors:[{msg:`Server Error`}]})
+  }
+
+});
 
 
 
