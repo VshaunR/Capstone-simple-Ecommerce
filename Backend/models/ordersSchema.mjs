@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 const ordersSchema = new mongoose.Schema({
 
 
-products:[{
+Products:[{
   type:mongoose.Schema.Types.ObjectId,
-  ref:'Product',
+  ref:'Cart',
   required:true
 }],
 date:{

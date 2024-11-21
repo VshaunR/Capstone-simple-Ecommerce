@@ -17,7 +17,7 @@ let productId=[]
 let idList= cart.map((item)=>{
 productId.push(item)
 })
-console.log(productId)
+// console.log(productId)
 
 async function addToCart(){
   const token = cookies.token
@@ -63,6 +63,6 @@ async function addToCart(){
     {card}
 
     <p>{formatCurrency(grandTotal)}</p>   
-    <Link to='/checkout' onClick={()=>{addToCart()}}>ChecKOut</Link>
+    {cookies.token?(<Link to='/checkout' onClick={()=>{addToCart()}}>ChecKOut</Link>):(null)}
   </div>
 }

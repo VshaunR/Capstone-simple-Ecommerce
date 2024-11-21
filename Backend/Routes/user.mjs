@@ -95,8 +95,28 @@ router.get('/:id',authorize,async(req,res)=>{
 
 });
 
+//HOW I WOULD RETRIEVE MY ORDER HISTORY
+// router.get('/cart/:id',authorize,async(req,res)=>{
+//   try {
+//     let result = await Cart.find({UserId:req.user.id})
+//     res.json(result);
+//   } catch (error) {
+//     console.error(e);
+//     res.status(500).json({errors:[{msg:`Server Error`}]})
+//   }
+// })
 
-
+//GET THE FIRST INDEX OF THE CARTCHEMA WHICH WILL BE THE LATEST ORDER
+//SO I CAN DISPLAY IT IN CHECKOUT
+router.get('/cart/:id',authorize,async(req,res)=>{
+  try {
+    let result = await Cart.find({UserId:req.user.id})
+    res.json(result[result.length-1]);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({errors:[{msg:`Server Error`}]})
+  }
+})
 router.post('/cart',authorize,async(req,res)=>{
     try {
       console.log(req.body)

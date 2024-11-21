@@ -20,13 +20,7 @@ export default function ProductCard({data}){
     <div>
        <div> 
        <button onClick={()=>{add(data)}} >Add 1 to Cart</button>
-       <select  >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-       </select>
+   
         <button onClick={()=>{minus(data)}}>Minus 1 to Cart</button>
       
       </div>
