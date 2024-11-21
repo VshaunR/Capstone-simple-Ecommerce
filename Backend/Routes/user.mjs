@@ -5,6 +5,8 @@ import User from '../models/UserSchema.mjs';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import authorize from '../middleware/auth.mjs';
+import Orders from '../models/ordersSchema.mjs';
+import Cart from '../models/cartSchema.mjs';
 dotenv.config();
 const router = express.Router()
 //register user
@@ -95,7 +97,18 @@ router.get('/:id',authorize,async(req,res)=>{
 
 
 
+router.post('/cart',authorize,async(req,res)=>{
+    try {
+      console.log(req.body)
+    let newCart = new Cart(req.body);
+    await newCart.save();
+    res.json(newCart)
+    } catch (e) {
+      console.error(e);
+      res.status(500).json({errors:[{msg:`Server Error`}]})
+    }
 
+});
 
 
 

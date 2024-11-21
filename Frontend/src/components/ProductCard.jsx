@@ -7,7 +7,7 @@ export default function ProductCard({data}){
 
   const {add,cart,minus,remove,setQuant} = useContext(CartContext);
 
- console.log(data)
+//  console.log(data)
   return <div className="card">
     <img src="./vite.svg"/>
     <div className="descr">

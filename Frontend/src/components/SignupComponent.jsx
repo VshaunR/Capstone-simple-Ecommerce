@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/auth_context";
+import { Navigate } from "react-router-dom";
 export default function SignupComponent(){
 
 const [formData,setFormData]= useState({
@@ -9,7 +10,7 @@ const [formData,setFormData]= useState({
   password:''
 });
 
-const {signup} = useAuth();
+const {signup,cookies} = useAuth();
 const nav= useNavigate();
 
 async function handleChange(e){
@@ -35,6 +36,7 @@ async function handleSubmit(e) {
     </label>
       <input type="submit"/>
     </form>
+  
 
   </>
 }

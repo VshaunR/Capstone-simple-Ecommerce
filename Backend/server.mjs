@@ -7,6 +7,7 @@ import authRouter from './Routes/auth.mjs';
 import cors from 'cors';
 import products from './data/products.mjs'
 import Product from './models/ProductSchema.mjs';
+import bodyParser from 'body-parser';
 dotenv.config()
 connectDB();
 
@@ -14,8 +15,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(cors());
-app.use(express.urlencoded({extended:true}));
-app.use(express.json({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json({extended:false}));
 
 app.use("/product",productRouter);
 app.use("/user",userRouter);

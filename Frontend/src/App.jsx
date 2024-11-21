@@ -4,11 +4,12 @@ import AuthProvider from './contexts/auth_context';
 import './App.css'
 import LoginComponent from './components/LoginComponent';
 import SignupComponent from './components/SignupComponent';
-import DashBoard from './components/Dashboard';
+import DashBoard from './pages/Dashboard';
 import ProtectRoute from './components/ProtectedRoutes';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import { CartProvider } from './contexts/cart_context';
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
      <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/login' element={<LoginComponent/>}/>
       <Route path='/signup' element={<SignupComponent/>} />
       <Route element ={<ProtectRoute/>}>

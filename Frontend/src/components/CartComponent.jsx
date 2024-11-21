@@ -7,7 +7,7 @@ export default  function CartComponent({data}){
 const {remove,minus,add} = useContext(CartContext)
 //individual item total
 let individualTotal = (data.price * data.quantity)   
-console.log(data)
+// console.log(data)
   return(<div className="shoppingCart">
     <div className=" card">
     {<img src="/vite.svg"/>}
