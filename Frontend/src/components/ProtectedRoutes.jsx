@@ -1,8 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/auth_context";
-
+import { useNavigate,Navigate } from "react-router-dom";
 
 export default function ProtectRoute(){
 const {cookies}= useAuth();
-return cookies.token? <Outlet/> :<h1>What am I going to put here????????</h1>
+const nav = useNavigate()
+//i can redirect the user to the login page
+
+
+return <>
+  {cookies.token? (<Outlet/>):(<Navigate to='/login'/>)}
+
+</>
 }
