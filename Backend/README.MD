@@ -1,5 +1,5 @@
 # Name
-Capstone - Basic Fantasy Ecomerce 
+Capstone - Basic Fantasy Ecomerce Backend
 ## Installation
 1:git clone https://github.com/VshaunR/Capstone-simple-Ecommerce.git
 there are two folders A Backend and a Frontend
