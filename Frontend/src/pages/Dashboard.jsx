@@ -42,7 +42,7 @@ export default function DashBoard(){
     return <UserInfo info={item}/>
    
   });
-console.log(history)
+// console.log(history)
 async function getOrderHistory(){
   const token = cookies.token;
   try {

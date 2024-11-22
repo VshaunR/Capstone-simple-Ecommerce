@@ -25,7 +25,7 @@ function add(data){
     //as in if this item is not in the cart then I
     if(!cart.find(item=>item._id ===data._id)){
       //return and array with the cart and item with id and quantity of 1
-      return [...cart,{_id:data._id,name:data.name,price:data.price,quantity:1}]
+      return [...cart,{_id:data._id,name:data.name,price:data.price,url:data.url,quantity:1}]
     }else{
       
       //map through the cart array 

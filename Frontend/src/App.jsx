@@ -9,9 +9,9 @@ import ProtectRoute from './components/ProtectedRoutes';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
 import { CartProvider } from './contexts/cart_context';
 import ThankYou from './pages/ThankYou';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
 
@@ -23,7 +23,6 @@ function App() {
      <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/cart' element={<Cart/>}/>
-      <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/thankyou' element={<ThankYou/>}/>
       <Route path='/login' element={<LoginComponent/>}/>
       <Route path='/signup' element={<SignupComponent/>} />

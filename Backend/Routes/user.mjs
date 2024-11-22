@@ -98,7 +98,7 @@ router.get('/:id',authorize,async(req,res)=>{
 // HOW I WOULD RETRIEVE MY ORDER HISTORY
 router.get('/history/:id',authorize,async(req,res)=>{
   try {
-    let result = await Cart.find({UserId:req.user.id})
+    let result = await Cart.find({UserId:req.user.id}).sort({date:1})
     res.json(result);
   } catch (error) {
     console.error(e);
@@ -117,10 +117,12 @@ router.get('/cart/:id',authorize,async(req,res)=>{
     res.status(500).json({errors:[{msg:`Server Error`}]})
   }
 })
+//adding to cart
 router.post('/cart',authorize,async(req,res)=>{
     try {
       console.log(req.body)
     let newCart = new Cart(req.body);
+
     await newCart.save();
     res.json(newCart)
     } catch (e) {

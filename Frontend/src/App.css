@@ -1,13 +1,18 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+}
 .container{
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr .2fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas: "navbar navbar navbar"
   "main main main"
   "footer footer footer";
   font-family: sans-serif;
-  background-color: gainsboro;
+  
   margin: 0;
 }
 
@@ -30,8 +35,8 @@ a{
 .card {
   padding: 2em;
   border: 1px solid green;
-  min-width: 25%;
-  max-width: 25%;
+  min-width: 55%;
+
   margin: .5rem;
 }
 
@@ -40,6 +45,7 @@ main{
   grid-area: main;
   margin: 1rem 1rem;
 }
+
 footer{
   grid-area: footer;
 }
@@ -59,4 +65,28 @@ flex-direction: column;
 width: 25%;
 justify-content: center;
 align-items: center;
+}
+.form-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid black;
+}
+.form{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  
+}
+input{
+  padding: .5rem;
+  border: 1px solid rgb(120, 137, 216);
+  border-radius: 10px;
+ 
+}
+.btn{
+
 }

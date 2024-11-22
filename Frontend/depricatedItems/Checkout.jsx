@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect } from "react";
-import CartComponent from '../components/CartComponent'
-import { CartContext } from "../contexts/cart_context";
-import Footer from "../components/Footer";
+import CartComponent from '../src/components/CartComponent'
+import { CartContext } from "../src/contexts/cart_context";
+import Footer from "../src/components/Footer";
 import { Link } from "react-router-dom";
-import { useAuth } from "../contexts/auth_context";
+import { useAuth } from "../src/contexts/auth_context";
 import {jwtDecode }from 'jwt-decode';
 import axios from "axios";
-import CheckoutComponent from "../components/CheckoutComponent";
+import CheckoutComponent from "../src/components/CheckoutComponent";
 export default function Checkout(){
 const [checkout,setCheckout]= useState([])
 const{cookies}= useAuth();

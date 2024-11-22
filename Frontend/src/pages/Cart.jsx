@@ -29,7 +29,7 @@ async function addToCart(){
     const cart = await axios.post(`http://localhost:3000/user/cart`,{
       UserId:`${id}`,
       Product:product,
-      
+ 
 
     },{
       headers:{
@@ -65,7 +65,7 @@ async function addToCart(){
     {card}
 
     <p>{formatCurrency(grandTotal)}</p>   
-    {cookies.token?(<Link to='/checkout' onClick={()=>{addToCart()}}>ChecKOut</Link>):(null)}
+    {cookies.token?(<Link to='/thankyou' onClick={()=>{addToCart()}}>ChecKOut</Link>):(<Link to='/signup'><button className="btn sign-up">Create an Account to Purchase</button></Link>)}
     </main>
     <Footer/>
   </div>

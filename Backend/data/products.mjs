@@ -1,49 +1,47 @@
 const products= [
   {
     category:'cloths',
-    name:'shirt',
+    name:'Bonking Stick',
     price:'167',
-    
+    url:'./images/staff.jpg'
   },
+
   {
     category:'cloths',
-    name:'pants',
-    price:'335'
-  },
-  {
-    category:'cloths',
-    name:'hat',
-    price:'21'
+    name:'Pantaloons',
+    price:'21',
+    url:'./images/chainpants.jpg'
   },
   {
     category:'cloths',
     name:'big shirt',
-    price:'13'
+    price:'13',
+    url:'./images/chainmail.jpg'
   },
-  {
-    category:'cloths',
-    name:'small pants',
-    price:'33'
-  },
+
   {
     category:'cloths',
     name:' fun hat',
-    price:'22'
+    price:'22',
+    url:'./images/hat.jpg'
   } ,
    {
     category:'cloths',
-    name:'tattered shirt',
-    price:'1'
+    name:'Sword',
+    price:'1',
+    url:'./images/sword.jpg'
   },
   {
     category:'cloths',
     name:' loin pants',
-    price:'1'
+    price:'1',
+    url:'./images/loincloth.webp'
   },
   {
     category:'cloths',
     name:'super duper hat',
-    price:'20000'
+    price:'20000',
+    url:'./images/superhat.jpg'
   }
 ]
 
