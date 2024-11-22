@@ -6,7 +6,7 @@ import userRouter from './Routes/user.mjs';
 import authRouter from './Routes/auth.mjs';
 import cors from 'cors';
 import products from './data/products.mjs'
-import Product from './models/ProductSchema.mjs';
+import Product from './models/productSchema.mjs';
 import bodyParser from 'body-parser';
 dotenv.config()
 connectDB();

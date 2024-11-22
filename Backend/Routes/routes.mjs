@@ -1,5 +1,5 @@
 import express from 'express';
-import Product from '../models/ProductSchema.mjs';
+import Product from '../models/productSchema.mjs';
 const router = express.Router();
 
 //get all

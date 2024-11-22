@@ -73,11 +73,11 @@ async function getOrderHistory(){
   return <div className="container">
     <main className="dashboard main">
     <div className="userInfo">
-      <button onClick={()=>{setIsClicked(false)}}>User</button>
+      <button className="btn btn-dark" onClick={()=>{setIsClicked(false)}}>User</button>
         {isClicked===false?(<p>{user}</p>):(null)}
     </div>
     <div className="orderHistory">
-      <button onClick={()=>{setIsClicked(true)}}>Order Hist</button>
+      <button className="btn btn-dark" onClick={()=>{setIsClicked(true)}}>Order Hist</button>
       {isClicked===true?(  <p>{<OrderHistory info={history}/>}</p>):(<p>Nothing here but us chickens</p>)}
    
     </div>

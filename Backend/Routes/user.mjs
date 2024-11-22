@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import {check,validationResult} from 'express-validator';
-import User from '../models/UserSchema.mjs';
+import User from '../models/userSchema.mjs';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import authorize from '../middleware/auth.mjs';
@@ -132,6 +132,17 @@ router.post('/cart',authorize,async(req,res)=>{
 
 });
 
+router.patch('/:id',authorize,async(req,res)=>{
+
+  try {
+    let update = await User.findByIdAndUpdate(req.user.id,req.body,{new:true}).select('-password');
+    res.json(update)
+
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({errors:[{msg:`Server Error`}]})
+  }
+})
 
 
 export default router;
