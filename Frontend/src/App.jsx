@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import { CartProvider } from './contexts/cart_context';
+import ThankYou from './pages/ThankYou';
 function App() {
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
+      <Route path='/thankyou' element={<ThankYou/>}/>
       <Route path='/login' element={<LoginComponent/>}/>
       <Route path='/signup' element={<SignupComponent/>} />
       <Route element ={<ProtectRoute/>}>

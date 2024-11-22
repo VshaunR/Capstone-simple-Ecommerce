@@ -1,5 +1,5 @@
 import { useState , useEffect } from "react";
-
+import Footer from "../components/Footer";
 import axios  from 'axios';
 import ProductCard from "../components/ProductCard";
 export default function Home(){
@@ -33,10 +33,13 @@ console.log(cart)
   useEffect(()=>{
     getProducts()
   },[])
-  return <div className="home">
+  return <div className="container">
+    <main className="home main">
     {card}
       
 
+  </main>
+  <Footer/>
   </div>
 
 
