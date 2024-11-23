@@ -5,7 +5,7 @@ import User from '../models/userSchema.mjs';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import authorize from '../middleware/auth.mjs';
-import Orders from '../models/ordersSchema.mjs';
+
 import Cart from '../models/cartSchema.mjs';
 dotenv.config();
 const router = express.Router()
@@ -35,6 +35,7 @@ router.post('/',[
       }
       // so if user does not already exists we create a new user
       //and pass in the values from the req.body
+      
       user = new User({
         name,email,password
       });

@@ -6,16 +6,27 @@ import UserInfo from "../components/UserInfo";
 import OrderHistory from "../components/OrderHistory";
 import axios from "axios";
 import Footer from "../components/Footer";
+
 export default function DashBoard(){
   const [data,setData]= useState([]);
   const [isClicked,setIsClicked]= useState(false);
   const [history,setHistory] = useState([])
-  const {cookies} = useAuth();
+  const {cookies,logout} = useAuth();
   const [userInfo,setUserInfo]= useState({
     name:"",
     email:""
   });
   const [change,setChange] = useState(false)
+
+  //is token expires then logout
+async function isAuth(){
+    if(cookies.token){
+      return
+    }else{
+      logout()
+    }
+}
+
 
   async function getUserInfo(){
     
@@ -99,6 +110,7 @@ async function handleSubmit(e){
 };
 
   useEffect(()=>{
+    isAuth();
     getUserInfo()
     getOrderHistory()
   },[cookies]);
