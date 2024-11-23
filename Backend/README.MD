@@ -13,3 +13,24 @@ Express,Mongoose,dotenv,jwtwebtoken,bodyparser,cors,bcrypyjs
 
 #### Usage
 npm start to initialise the backend
+
+
+##### Routes
+# Auth
+router.get('/auth')
+-Gets info on authorized user except the password
+router.post('/auth')
+-User to verify authorized user to login
+
+# User
+router.get('/user/:id')
+-user to get a specific user based on _id
+router.post('/user')
+-used to create a new user, needs a name,email and password
+router.post('/user/cart')
+-used to post a users items to mongodb
+router.post('/user/history/:id')
+-used to get a users order history
+
+router.patch('/user/:id')
+-used to edit a users name and email 
