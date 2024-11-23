@@ -11,7 +11,11 @@ export default function DashBoard(){
   const [isClicked,setIsClicked]= useState(false);
   const [history,setHistory] = useState([])
   const {cookies} = useAuth();
-
+  const [userInfo,setUserInfo]= useState({
+    name:"",
+    email:""
+  });
+  const [change,setChange] = useState(false)
 
   async function getUserInfo(){
     
@@ -62,7 +66,37 @@ async function getOrderHistory(){
   } catch (e) {
     console.error(e);
   }
-}
+};
+async function handleChange(e) {
+
+  try {
+    setUserInfo({...userInfo,[e.target.name]:e.target.value})
+
+  } catch (e) {
+    console.error(e)
+  }
+};
+async function handleSubmit(e){
+ 
+  const decode = jwtDecode(cookies.token);
+  const id = decode.user.id
+  try {
+
+    let result = await axios({
+      method:'PATCH',
+      url:`http://localhost:3000/user/${id}`,
+      headers:{
+        'x-auth-token':`${cookies.token}`
+      },
+      data:userInfo,
+    })
+    let data = result.data;
+    setChange(false)
+    console.log(data)
+  } catch (e) {
+    console.error(e)
+  }
+};
 
   useEffect(()=>{
     getUserInfo()
@@ -73,9 +107,17 @@ async function getOrderHistory(){
   return <div className="container">
     <main className="dashboard main">
     <div className="userInfo">
-      <button className="btn btn-dark" onClick={()=>{setIsClicked(false)}}>User</button>
+      <button className="btn btn-dark m-1" onClick={()=>{setIsClicked(false)}}>User</button>
+      <button className="btn btn-dark m-1" onClick={()=>{setChange(true)}}>Change User Info</button>
+        {change ?(
+          <form action="" className="form-control" onSubmit={handleSubmit}>
+          <input type="text" name="name" onChange={handleChange} placeholder="Enter Your New Name!" minLength={4} required/>
+          <input type="email" name="email" id="" onChange={handleChange} placeholder="Enter Your New Email!" minLength={8} required/>
+         <input type="submit" value="submit" />
+          </form>):(null)}
         {isClicked===false?(<p>{user}</p>):(null)}
     </div>
+ 
     <div className="orderHistory">
       <button className="btn btn-dark" onClick={()=>{setIsClicked(true)}}>Order Hist</button>
       {isClicked===true?(  <p>{<OrderHistory info={history}/>}</p>):(<p>Nothing here but us chickens</p>)}
