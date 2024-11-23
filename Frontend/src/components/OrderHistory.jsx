@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 
 export default function OrderHistory({info}){
 
-console.log(info.Products)
+console.log(info)
 let arr=[];
 info.forEach((item)=>{
   // console.log(item)

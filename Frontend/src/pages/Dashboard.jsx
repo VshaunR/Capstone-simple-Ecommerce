@@ -108,19 +108,18 @@ async function handleSubmit(e){
     <main className="dashboard main">
     <div className="userInfo">
       <button className="btn btn-dark m-1" onClick={()=>{setIsClicked(false)}}>User</button>
-      <button className="btn btn-dark m-1" onClick={()=>{setChange(true)}}>Change User Info</button>
-        {change ?(
-          <form action="" className="form-control" onSubmit={handleSubmit}>
+      <button className="btn btn-dark m-1" onClick={()=>{setIsClicked(true)}}>Change User Info</button>
+       
+        {isClicked===false?(<p>{user}</p>):( <form action="" className="form-control" onSubmit={handleSubmit}>
           <input type="text" name="name" onChange={handleChange} placeholder="Enter Your New Name!" minLength={4} required/>
           <input type="email" name="email" id="" onChange={handleChange} placeholder="Enter Your New Email!" minLength={8} required/>
          <input type="submit" value="submit" />
-          </form>):(null)}
-        {isClicked===false?(<p>{user}</p>):(null)}
+          </form>)}
     </div>
  
     <div className="orderHistory">
-      <button className="btn btn-dark" onClick={()=>{setIsClicked(true)}}>Order Hist</button>
-      {isClicked===true?(  <p>{<OrderHistory info={history}/>}</p>):(<p>Nothing here but us chickens</p>)}
+      <button className="btn btn-dark" onClick={()=>{setChange(true)}}>Order Hist</button>
+      {change===true?(  <p>{<OrderHistory info={history}/>}</p>):(<p>Nothing here but us chickens</p>)}
    
     </div>
   
