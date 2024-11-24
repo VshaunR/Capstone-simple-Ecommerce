@@ -101,7 +101,7 @@ router.get('/history/:id',authorize,async(req,res)=>{
   try {
     let result = await Cart.find({UserId:req.user.id}).sort({date:1})
     res.json(result);
-  } catch (error) {
+  } catch (e) {
     console.error(e);
     res.status(500).json({errors:[{msg:`Server Error`}]})
   }

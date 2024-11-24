@@ -21,11 +21,11 @@ export default function DashBoard(){
 
   //is token expires then logout
 async function isAuth(){
-    if(cookies.token){
-      return
-    }else{
+
       logout()
-    }
+    
+      alert('session expired')
+ 
 }
 
 
@@ -46,40 +46,26 @@ async function isAuth(){
       
       })
       let data = await result.json();
+      // if session expires
+      if(data.errors){
+        alert('Session Expired')
+        logout()
+      }
       setData([data])
       console.log(data)
+      
     } catch (e) {
       console.error(e);
     }
   };
   // console.log(data)
   let user= data.map((item)=>{
-    console.log(item.name,item.email)
+  
     return <UserInfo info={item}/>
    
   });
-// console.log(history)
-async function getOrderHistory(){
-  const token = cookies.token;
-  try {
-    const decoded = jwtDecode(token)
-    console.log(decoded.user.id)
-    const id = decoded.user.id;
-    let result = await axios(`http://localhost:3000/user/history/${id}`,{
 
-      headers:{
 
-        'x-auth-token':`${cookies.token}`
-      },
-    
-    });
-    let data = await result.data;
-    setHistory(data)
-    setChange(false)
-  } catch (e) {
-    console.error(e);
-  }
-};
 async function handleChange(e) {
 
   try {
@@ -114,9 +100,8 @@ async function handleSubmit(e){
 
   useEffect(()=>{
    
-    isAuth();
     getUserInfo()
-    getOrderHistory()
+   
   },[cookies]);
 
 
@@ -135,11 +120,7 @@ async function handleSubmit(e){
           </form>)}
     </div>
  
-    <div className="orderHistory">
-   
- 
-   
-    </div>
+    
   
 
 

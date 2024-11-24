@@ -8,7 +8,7 @@ import {jwtDecode }from 'jwt-decode';
 import axios from "axios";
 import Footer from "../components/Footer";
 export default function Cart(){
-const {cart,remove,add}= useContext(CartContext);
+const {cart,remove,add,resetCart}= useContext(CartContext);
 const{cookies}= useAuth()
 const [isEmpty,setIsEmpty]= useState(false);
 const [product,setProducts]= useState([])
@@ -37,7 +37,7 @@ async function addToCart(){
       }
 
     })
-
+    resetCart()
   } catch (e) {
     console.error(e)
   }

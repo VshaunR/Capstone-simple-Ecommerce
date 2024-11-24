@@ -30,11 +30,11 @@ export default function LoginComponent(){
  {cookies.token ==null?(<form className="form-control mb-3 mt-3 p-5" onSubmit={handleSubmit}>
   <h3>Login</h3>
   <div className="input-group-s mb-3 mt-3 col">
-  <input className="form-control" type="email" name="email"  onChange={handleChange} placeholder="Enter Your Email."/>
+  <input className="form-control" type="email" name="email"  onChange={handleChange} placeholder="Enter Your Email." required/>
   <br />
   </div>
   <div className="input-group-s mb-3 col">
-  <input className="form-control" type="password" name="password"  onChange={handleChange} placeholder="Enter Your Password."/>
+  <input className="form-control" type="password" name="password"  onChange={handleChange} placeholder="Enter Your Password." required/>
   <br />
   </div>
   <div className="input-group mb-3">

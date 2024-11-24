@@ -6,14 +6,15 @@ import UserInfo from "../components/UserInfo";
 import OrderHistory from "../components/OrderHistory";
 
 import axios from "axios";
-import Footer from "../components/Footer";
+
 
 
 
 export default function Orders(){
   const [history,setHistory] = useState([]);
   const [change,setChange] = useState(false)
-  const {cookies} = useAuth();
+  const {cookies,logout} = useAuth();
+ 
   async function getOrderHistory(){
     const token = cookies.token;
     try {
@@ -30,19 +31,22 @@ export default function Orders(){
       });
       let data = await result.data;
       setHistory(data)
-   
+      setChange(true)
     } catch (e) {
       console.error(e);
+        logout()
+        alert('Session Expired')
+     
     }
   };
 
   useEffect(()=>{
-    setChange(true)
+  
 
     getOrderHistory()
   },[cookies]);
   return<div className="container">
-      {change? ( <>{<OrderHistory info={history}/>}</>):(<p>Chickens</p>)}
+      {history !==null? ( <>{<OrderHistory info={history}/>}</>):(<p>Chickens</p>)}
 
     
   </div>

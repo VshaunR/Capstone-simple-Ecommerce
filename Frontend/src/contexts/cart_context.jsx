@@ -78,13 +78,18 @@ function remove(data){
 setCart(cart=>{
   return cart.filter(item=>item._id !== data._id)
 })
-}
+};
+function resetCart(){
+  let empty=[]
+  setCart(empty)
+};
 const value = {
   add,
   remove,
   minus,
   cart,
   cartQuantity,
+  resetCart
 }
   return <CartContext.Provider value={value}>
     {children}

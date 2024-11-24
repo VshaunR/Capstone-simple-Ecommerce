@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-
+import {formatCurrency} from '../utilities/CurrencyFormat.mjs'
 export default function OrderHistory({info}){
 
 console.log(info)
@@ -20,13 +20,14 @@ let y =arr.map((item)=>{
     <div className="card-body">
     <img  style={{width:'20%'}} src={item.url}/>
       <p className="card-title">ProductName:{item.name}</p>
-      <p> ProductPrice: {item.price}</p>
+      <p> ProductPrice: {formatCurrency(item.price)}</p>
       <p> Quantity: {item.quantity}</p>
+      <p> Total: {formatCurrency(item.price*item.quantity)}</p>
     </div>
   </div>
   }
 })
   return <div className="history">
-  {y}
+  {y?(y):(<h1>No Items Listed!</h1>)}
   </div>
 }
