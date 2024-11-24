@@ -1,22 +1,23 @@
 import { useAuth } from "../contexts/auth_context";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import {jwtDecode }from 'jwt-decode';
 import UserInfo from "../components/UserInfo";
 import OrderHistory from "../components/OrderHistory";
+import Orders from "./Orders";
 import axios from "axios";
 import Footer from "../components/Footer";
 
 export default function DashBoard(){
   const [data,setData]= useState([]);
   const [isClicked,setIsClicked]= useState(false);
-  const [history,setHistory] = useState([])
+ 
   const {cookies,logout} = useAuth();
   const [userInfo,setUserInfo]= useState({
     name:"",
     email:""
   });
-  const [change,setChange] = useState(false)
+
 
   //is token expires then logout
 async function isAuth(){
@@ -74,6 +75,7 @@ async function getOrderHistory(){
     });
     let data = await result.data;
     setHistory(data)
+    setChange(false)
   } catch (e) {
     console.error(e);
   }
@@ -109,7 +111,9 @@ async function handleSubmit(e){
   }
 };
 
+
   useEffect(()=>{
+   
     isAuth();
     getUserInfo()
     getOrderHistory()
@@ -119,8 +123,10 @@ async function handleSubmit(e){
   return <div className="container">
     <main className="dashboard main">
     <div className="userInfo">
-      <button className="btn btn-dark m-1" onClick={()=>{setIsClicked(false)}}>User</button>
-      <button className="btn btn-dark m-1" onClick={()=>{setIsClicked(true)}}>Change User Info</button>
+   <nav className="nav nav-tabs justify-content-center"> 
+      <a className="nav-link  m-1" onClick={()=>{setIsClicked(false)}}>User</a>
+      <a className="nav-link   m-1" onClick={()=>{setIsClicked(true)}}>Change User Info</a>
+      <Link to='/orders' className="nav-link m-1 " >Order Hist</Link></nav>
        
         {isClicked===false?(<p>{user}</p>):( <form action="" className="form-control" onSubmit={handleSubmit}>
           <input type="text" name="name" onChange={handleChange} placeholder="Enter Your New Name!" minLength={4} required/>
@@ -130,8 +136,8 @@ async function handleSubmit(e){
     </div>
  
     <div className="orderHistory">
-      <button className="btn btn-dark" onClick={()=>{setChange(true)}}>Order Hist</button>
-      {change===true?(  <p>{<OrderHistory info={history}/>}</p>):(<p>Nothing here but us chickens</p>)}
+   
+ 
    
     </div>
   

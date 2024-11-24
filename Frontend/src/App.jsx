@@ -12,6 +12,7 @@ import Cart from './pages/Cart';
 import { CartProvider } from './contexts/cart_context';
 import ThankYou from './pages/ThankYou';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Orders from './pages/Orders';
 function App() {
 
 
@@ -28,6 +29,7 @@ function App() {
       <Route path='/signup' element={<SignupComponent/>} />
       <Route element ={<ProtectRoute/>}>
       <Route path='/dashboard' element={<DashBoard/>} />
+      <Route path='/orders' element={<Orders/>} />
       </Route>
      </Routes>
      </CartProvider>

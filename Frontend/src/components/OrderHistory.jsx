@@ -14,7 +14,7 @@ info.forEach((item)=>{
 // console.log(arr)
 
 let y =arr.map((item)=>{
-  console.log(item)
+  // console.log(item)
   if(item._id ===item._id){
     return <div className="card">
     <div className="card-body">
