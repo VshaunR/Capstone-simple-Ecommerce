@@ -44,5 +44,5 @@ const products= [
     url:'./images/superhat.jpg'
   }
 ]
-///up
+///update
 export default products
