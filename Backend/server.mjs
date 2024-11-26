@@ -27,11 +27,11 @@ res.send("this is listening")
 });
 
 
-// app.get('/seed',async(req,res)=>{
+app.get('/seed',async(req,res)=>{
   
-// await Product.create(products)
-// res.send('seeding product schema successful')
-// })
+await Product.create(products)
+res.send('seeding product schema successful')
+})
 app.listen(PORT,()=>{
   console.log(`Listening to port :${PORT}`)
 })

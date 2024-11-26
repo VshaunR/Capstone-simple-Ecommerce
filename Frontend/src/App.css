@@ -2,6 +2,7 @@ body{
   margin: 0;
   padding: 0;
   background-color: rgb(255, 255, 255);
+  font-family: sans-serif;
 }
 .container{
   display: grid;
@@ -27,6 +28,7 @@ body{
   margin-top: 0;
   width: 100%;
 }
+
 a{
   text-decoration: none;
   font-size: 1.3rem;

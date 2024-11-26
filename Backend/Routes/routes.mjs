@@ -29,6 +29,8 @@ router.post('/',async(req,res)=>{
     res.status(500).json({msg:`Server error`})
   }
 });
+
+//for filtering by category
 router.get('/category',async(req,res)=>{
   try {
     // useing method

@@ -26,9 +26,9 @@ async function addToCart(){
     const decoded = jwtDecode(token)
     console.log(decoded.user.id)
     const id = decoded.user.id
-    const cart = await axios.post(`http://localhost:3000/user/cart`,{
+     await axios.post(`http://localhost:3000/user/cart`,{
       UserId:`${id}`,
-      Product:product,
+      cart:product,
  
 
     },{
@@ -65,7 +65,7 @@ async function addToCart(){
     {card}
 
     <p>{formatCurrency(grandTotal)}</p>   
-    {cookies.token?(<Link to='/thankyou' onClick={()=>{addToCart()}}>ChecKOut</Link>):(<Link to='/signup'><button className="btn sign-up">Create an Account to Purchase</button></Link>)}
+    {cookies.token?(<Link to='/thankyou' onClick={()=>{addToCart()}}>ChecKOut</Link>):(<Link to='/signup'><button className="btn btn-dark sign-up">Create an Account to Purchase</button></Link>)}
     </main>
     <Footer/>
   </div>

@@ -5,14 +5,14 @@ import { CartContext } from "../contexts/cart_context";
 export default function ProductCard({data}){
   const {name,price,_id,category,url}= data;
 
-  const {add,cart,minus,remove,setQuant} = useContext(CartContext);
+  const {add,minus} = useContext(CartContext);
 
 //  console.log(data)
   return <div className="card text-center" style={{width:'15rem'}} >
     
     <div className="card-body">
     <img  className ="card-img-top"src={url}/>
-    <p className ="card-title">{name}</p>
+    <p className ="card-title lotr">{name}</p>
     <p className ="card-text">{formatCurrency(price)}</p>
     </div>
 

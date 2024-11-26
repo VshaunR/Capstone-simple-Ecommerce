@@ -9,8 +9,8 @@ there are two folders A Backend and a Frontend
 but you do need authentication the purchase a product and go to the user dashboard
 5:register, you need a name email and a password
 6:you can then login with email and password
-
-
+7:Password must be >6 characters
+8: Users can update their name and email, delete their account and view their order history in /dashboard
 ### Dependancies on Frontend
 React, axios, react-cookie,jwt-decode,react-bootstrap,react-router-dom
 #### Usage

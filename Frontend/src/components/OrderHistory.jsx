@@ -2,11 +2,12 @@ import { useState,useEffect } from "react";
 import {formatCurrency} from '../utilities/CurrencyFormat.mjs'
 export default function OrderHistory({info}){
 
-console.log(info)
+
 let arr=[];
 info.forEach((item)=>{
   // console.log(item)
-  item.Product.forEach((x)=>{
+ 
+  item.cart.forEach((x)=>{
     // console.log(x)
     arr.push(x)
   })
@@ -26,8 +27,13 @@ let y =arr.map((item)=>{
     </div>
   </div>
   }
-})
+});
+console.log(y)
+useEffect(()=>{
+
+});
   return <div className="history">
-  {y?(y):(<h1>No Items Listed!</h1>)}
+  {y.length ===0 ?(<h1>No Items Listed!</h1>):(y)}
+
   </div>
 }

@@ -46,8 +46,8 @@ useEffect(()=>{
 },[info])
 return(<div>
   
-  <p>{name}</p>
-  <p>{email}</p>
+  <p className="lotr">{name}</p>
+  <p className="lotr">{email}</p>
 
  
 

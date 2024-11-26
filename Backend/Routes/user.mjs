@@ -5,7 +5,7 @@ import User from '../models/userSchema.mjs';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import authorize from '../middleware/auth.mjs';
-
+import Order from '../models/orderSchema.mjs';
 import Cart from '../models/cartSchema.mjs';
 dotenv.config();
 const router = express.Router()
@@ -99,7 +99,9 @@ router.get('/:id',authorize,async(req,res)=>{
 // HOW I WOULD RETRIEVE MY ORDER HISTORY
 router.get('/history/:id',authorize,async(req,res)=>{
   try {
-    let result = await Cart.find({UserId:req.user.id}).sort({date:1})
+    let result = await Cart.find({UserId:req.user.id})
+   
+    
     res.json(result);
   } catch (e) {
     console.error(e);
@@ -111,7 +113,9 @@ router.get('/history/:id',authorize,async(req,res)=>{
 //SO I CAN DISPLAY IT IN CHECKOUT
 router.get('/cart/:id',authorize,async(req,res)=>{
   try {
-    let result = await Cart.find({UserId:req.user.id})
+    
+    let result = await Cart.find({UserId:req.user.id});
+
     res.json(result[result.length-1]);
   } catch (e) {
     console.error(e);
@@ -122,6 +126,7 @@ router.get('/cart/:id',authorize,async(req,res)=>{
 router.post('/cart',authorize,async(req,res)=>{
     try {
       console.log(req.body)
+    
     let newCart = new Cart(req.body);
 
     await newCart.save();
@@ -143,7 +148,20 @@ router.patch('/:id',authorize,async(req,res)=>{
     console.error(e);
     res.status(500).json({errors:[{msg:`Server Error`}]})
   }
-})
+});
 
+
+router.delete('/:id',authorize,async(req,res)=>{
+
+  try {
+    
+    const del = await User.findByIdAndDelete(req.user.id)
+    res.json(del)
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({errors:[{msg:`Server Error`}]})
+  }
+
+});
 
 export default router;

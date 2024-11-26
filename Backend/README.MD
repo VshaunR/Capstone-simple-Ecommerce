@@ -4,10 +4,10 @@ Capstone - Basic Fantasy Ecomerce Backend
 1:git clone https://github.com/VshaunR/Capstone-simple-Ecommerce.git
 there are two folders A Backend and a Frontend
 2:npm i to install all the dependancies
-3: In the BACKEND there is a seend route in server.mjs
+3: In the BACKEND there is a seef route in server.mjs
 its commented out by default, to seed the data base
-uncooment it and go to localhost:3000/seed 
-
+uncomment it and go to localhost:3000/seed 
+4: The front end contains the necessary files for displaying the images and its information
 ### Dependancies on Backend
 Express,Mongoose,dotenv,jwtwebtoken,bodyparser,cors,bcrypyjs
 
@@ -34,3 +34,5 @@ router.post('/user/history/:id')
 
 router.patch('/user/:id')
 -used to edit a users name and email 
+
+

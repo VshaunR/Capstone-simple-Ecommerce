@@ -20,6 +20,6 @@ export default function NavBar(){
       </button></Link>
       
       {cookies.token? (null):(<Link className="navbar-brand" to='/signup'><button className="btn btn-dark">Signup</button></Link>)}
-      {cookies.token ? (<button className="btn btn-primary" onClick={()=>{logout()}}>Logout</button>):( <Link className="navbar-brand btn" to='/login'><button className="btn btn-secondary">Login</button></Link>)}
+      {cookies.token ? (<button className="btn btn-primary" onClick={()=>{logout()}}>Logout</button>):( <Link className="navbar-brand btn lotr" to='/login'><button className="btn btn-secondary lotr">Login</button></Link>)}
   </nav>
 }

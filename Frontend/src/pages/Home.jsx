@@ -34,6 +34,7 @@ console.log(cart)
     getProducts()
   },[])
   return <div className="container">
+    <h2 className="text-center m-2">Supplies</h2>
     <main className="home main">
     {card}
       

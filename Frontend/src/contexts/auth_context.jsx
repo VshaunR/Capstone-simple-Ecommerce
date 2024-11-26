@@ -13,6 +13,9 @@ export default function AuthProvider({children}){
 const [cookies,setCookie,removeCookie] = useCookies();
 
 //these functions will make a call to MY API for the login, signup
+
+
+
 async function login(formData){
   try {
     let result = await axios({
@@ -37,7 +40,10 @@ async function signup(formData){
 
     setCookie('token',result.data.token)
   } catch (e) {
-    console.error(e);
+    
+    console.error(e.response.data.errors);
+    //this is it?
+    
   };
 };
 

@@ -19,14 +19,8 @@ export default function DashBoard(){
   });
 
 
-  //is token expires then logout
-async function isAuth(){
 
-      logout()
-    
-      alert('session expired')
- 
-}
+
 
 
   async function getUserInfo(){
@@ -97,7 +91,24 @@ async function handleSubmit(e){
   }
 };
 
-
+async function handleDelete(e){
+  const token = cookies.token;
+  const decode = jwtDecode(token);
+  const id = decode.user.id
+  try {
+    const del = axios({
+      method:'DELETE',
+      headers:{
+        'x-auth-token':token
+      },
+      url:`http://localhost:3000/user/${id}`
+    });
+    alert('ACCOUNT TERMINATED')
+    logout();
+  } catch (e) {
+    console.error(e)
+  }
+}
   useEffect(()=>{
    
     getUserInfo()
@@ -111,7 +122,10 @@ async function handleSubmit(e){
    <nav className="nav nav-tabs justify-content-center"> 
       <a className="nav-link  m-1" onClick={()=>{setIsClicked(false)}}>User</a>
       <a className="nav-link   m-1" onClick={()=>{setIsClicked(true)}}>Change User Info</a>
-      <Link to='/orders' className="nav-link m-1 " >Order Hist</Link></nav>
+      
+      <Link to='/orders' className="nav-link m-1 " >Order Hist</Link>
+      <button className="btn btn-danger" onClick={()=>handleDelete()}>Delete Account</button>
+      </nav>
        
         {isClicked===false?(<p>{user}</p>):( <form action="" className="form-control" onSubmit={handleSubmit}>
           <input type="text" name="name" onChange={handleChange} placeholder="Enter Your New Name!" minLength={4} required/>

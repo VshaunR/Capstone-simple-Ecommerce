@@ -30,12 +30,13 @@ export default function Orders(){
       
       });
       let data = await result.data;
+   
+      
       setHistory(data)
       setChange(true)
     } catch (e) {
-      console.error(e);
-        logout()
-        alert('Session Expired')
+      console.error(e)
+       
      
     }
   };

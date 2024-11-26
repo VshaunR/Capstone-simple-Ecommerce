@@ -1,34 +1,34 @@
 const products= [
   {
-    category:'cloths',
-    name:'Bonking Stick',
+    category:'weapon',
+    name:'Wizards Staff',
     price:'167',
     url:'./images/staff.jpg'
   },
 
   {
     category:'cloths',
-    name:'Pantaloons',
-    price:'21',
+    name:'Chain Pants',
+    price:'210',
     url:'./images/chainpants.jpg'
   },
   {
     category:'cloths',
-    name:'big shirt',
-    price:'13',
+    name:'Chain Mail',
+    price:'130',
     url:'./images/chainmail.jpg'
   },
 
   {
     category:'cloths',
-    name:' fun hat',
-    price:'22',
+    name:'Bards Hat',
+    price:'80',
     url:'./images/hat.jpg'
   } ,
    {
-    category:'cloths',
+    category:'weapon',
     name:'Sword',
-    price:'1',
+    price:'100',
     url:'./images/sword.jpg'
   },
   {
@@ -42,6 +42,41 @@ const products= [
     name:'super duper hat',
     price:'20000',
     url:'./images/superhat.jpg'
+  },
+  {
+    category:'weapon',
+    name:'Speart',
+    price:'105',
+    url:'./images/spear.webp'
+  },
+  {
+    category:'weapon',
+    name:'Axe',
+    price:'87',
+    url:'./images/axe.jpg'
+  },
+  {
+    category:'cloths',
+    name:'The Boot',
+    price:'20',
+    url:'./images/boots.jpg'
+  }, {
+    category:'Food',
+    name:'Bread',
+    price:'2',
+    url:'./images/bread.jpg'
+  },
+  {
+    category:'Food',
+    name:'Rations',
+    price:'50',
+    url:'./images/rations.jpg'
+  },
+  {
+    category:'Potion',
+    name:'Health Pot',
+    price:'20',
+    url:'./images/health-pot.webp'
   }
 ]
 ///update
